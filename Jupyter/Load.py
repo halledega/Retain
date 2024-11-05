@@ -10,7 +10,7 @@ class Load_Category(Enum):
     COMPACTION = 7
 
 class Load_Type(Enum):
-    HYDOSTATIC = 1
+    HYDROSTATIC = 1
     SURCHARGE = 2
     WALL = 3
 
@@ -26,6 +26,18 @@ class Concrete():
         self.Name = name
         self.fc = fc
         self.Denesity = density
+        self.Unit_Weight = 24
+        
+class Soil():
+    def __init__(self, name: str, density: float, ka: float, ko: float, kp: float, q_uls: float, q_sls: float, mu: float):
+        self.Name = name
+        self.Density = density
+        self.ka = ka
+        self.ko = ko
+        self.kp = kp
+        self.Q_uls = q_uls
+        self.Q_sls = q_sls
+        self.Mu = mu
 
 class Wall():
     def __init__(self, name: str, height: float, wall_thickness: float, toe_length: float, footing_length: float, footing_thickness: float, heel_length: float, concrete: Concrete) -> None:
@@ -42,6 +54,6 @@ class Wall():
         self.Loads = {}
 
     def Add_Load(self, load_type: Load_Type, category: Load_Category, name: str, value:float) -> None:
-        self.Loads[name] = Load(name, category, load_type, value)
+        self.Loads[name] = Load(load_type, category, name, value)
         
     
