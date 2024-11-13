@@ -41,10 +41,11 @@ class Soil():
         self.Mu = mu
 
 class Wall():
-    def __init__(self, name: str, height: float, wall_thickness: float, toe_length: float, footing_length: float, footing_thickness: float, heel_length: float, concrete: Concrete) -> None:
+    def __init__(self, name: str, height: float, wall_thickness: float, toe_cover: float, toe_length: float, footing_length: float, footing_thickness: float, heel_length: float, concrete: Concrete) -> None:
         self.Name = name
         self.Height = height
         self.Wall_Thickness = wall_thickness
+        self.Toe_Cover = toe_cover
         self.Toe_length = toe_length
         self.Footing_Length = footing_length
         self.Heel_Length = heel_length
