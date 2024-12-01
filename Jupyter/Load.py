@@ -12,8 +12,9 @@ class Load_Category(Enum):
 class Load_Type(Enum):
     HYDROSTATIC = 1
     SURCHARGE = 2
-    WALL = 3
-    SEISMIC = 4
+    COMPACTION = 3
+    WALL = 4
+    SEISMIC = 5
 
 class Load():
     def __init__(self, load_type: Load_Type, category: Load_Category, name: str, value: float) -> None:
