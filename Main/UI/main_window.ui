@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mw_MainWindow</class>
+ <widget class="QMainWindow" name="mw_MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>835</width>
+    <height>591</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout"/>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>835</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="a_new"/>
+    <addaction name="a_open"/>
+    <addaction name="a_save"/>
+    <addaction name="a_saveas"/>
+    <addaction name="separator"/>
+    <addaction name="a_preferences"/>
+    <addaction name="separator"/>
+    <addaction name="a_exit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuDefine">
+    <property name="title">
+     <string>Define</string>
+    </property>
+    <addaction name="a_defineSoil"/>
+    <addaction name="a_defineMaterials"/>
+    <addaction name="a_defineSurchargeLoads"/>
+    <addaction name="a_defineWallLoads"/>
+    <addaction name="a_defineSeismicLoads"/>
+   </widget>
+   <widget class="QMenu" name="menuRun">
+    <property name="title">
+     <string>Run</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="a_about"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuDefine"/>
+   <addaction name="menuRun"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="a_about">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="a_new">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="a_open">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="a_save">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="a_saveas">
+   <property name="text">
+    <string>Save As</string>
+   </property>
+  </action>
+  <action name="a_exit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="a_preferences">
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <action name="a_defineSoil">
+   <property name="text">
+    <string>Soil</string>
+   </property>
+  </action>
+  <action name="a_defineMaterials">
+   <property name="text">
+    <string>Materials</string>
+   </property>
+  </action>
+  <action name="a_defineSurchargeLoads">
+   <property name="text">
+    <string>Surcharge Loads</string>
+   </property>
+  </action>
+  <action name="a_defineWallLoads">
+   <property name="text">
+    <string>Wall Loads</string>
+   </property>
+  </action>
+  <action name="a_defineSeismicLoads">
+   <property name="text">
+    <string>Semsic Loads</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
