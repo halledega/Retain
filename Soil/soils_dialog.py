@@ -1,16 +1,12 @@
 # Import system
 import sys
-#from mimetypes import inited
 # PySide6 Imports
 from PySide6 import QtCore as Qtc
 from PySide6 import QtWidgets as Qtw
-from PySide6.QtCore import Signal
-
-#from PySide6 import QtGui as qtg
 # Custom Imports
 from Soil.UI.soils_dialog import Ui_dl_soils
 #from Database.db_functions import *
-from Classes import Soil
+from Classes.Soil import Soil
 
 class SoilsDialog(Qtw.QDialog, Ui_dl_soils):
     # Signals
@@ -75,6 +71,7 @@ if __name__ == "__main__":
     # Create new QApplication instance
     app = Qtw.QApplication(sys.argv)
     # Create window object (could also be a widget)
+    test_soil = Soil("test", 20, 300, 200, 0.3, 0.3, 3)
     window = SoilsDialog(Qtw.QMainWindow)
     # Handle application shutdown
     sys.exit(app.exec())

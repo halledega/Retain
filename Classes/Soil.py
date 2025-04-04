@@ -1,4 +1,4 @@
-class Soil():
+class Soil:
     def __init__(self, name, unit_weight, uls_earing, sls_bearing, friction_coeff, active_coeff, passive_coeff):
         self.name = name
         self.unit_weight = unit_weight

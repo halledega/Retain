@@ -47,7 +47,7 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
         self.form.materials_updated.connect(self.update_materials)
         self.form.show()
 
-    @Qtc.Slot(str)
+    @Qtc.Slot(list)
     def update_soil(self, my_str):
         self.soil.name = my_str[0]
         self.soil.unit_weight = my_str[1]
@@ -57,16 +57,12 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
         self.soil.active_coeff = my_str[5]
         self.soil.passive_coeff = my_str[6]
 
-    @Qtc.Slot(str)
+    @Qtc.Slot(list)
     def update_materials(self, my_str):
-        # self.soil.name = my_str[0]
-        # self.soil.unit_weight = my_str[1]
-        # self.soil.uls_bearing = my_str[2]
-        # self.soil.sls_bearing = my_str[3]
-        # self.soil.friction_coeff = my_str[4]
-        # self.soil.active_coeff = my_str[5]
-        # self.soil.passive_coeff = my_str[6]
-        pass
+        self.concrete.name = my_str[0]
+        self.concrete.fc = my_str[1]
+        self.concrete.unit_weight = my_str[2]
+        self.concrete.density = my_str[3]
 
     def start_up(self):
         # Connect to settings DB

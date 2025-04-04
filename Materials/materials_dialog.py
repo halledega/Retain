@@ -1,15 +1,13 @@
 # Import system
 import sys
-#from mimetypes import inited
 # PySide6 Imports
 from PySide6 import QtCore as Qtc
 from PySide6 import QtWidgets as Qtw
 from PySide6.QtCore import Signal
-
-#from PySide6 import QtGui as qtg
 # Custom Imports
 from Materials.UI.materials_dialog import Ui_dl_materials
 #from Database.db_functions import *
+from Classes.Concrete import Concrete
 
 
 class MaterialsDialog(Qtw.QDialog, Ui_dl_materials):
@@ -45,7 +43,12 @@ class MaterialsDialog(Qtw.QDialog, Ui_dl_materials):
 
     @Qtc.Slot(list)
     def update_materials(self):
-        concrete_ppts = []
+        concrete_ppts = [
+            self.le_name.text().strip(),
+            float(self.le_fc.text().strip()),
+            float(self.le_unit_weight.text().strip()),
+            self.le_desnity.text().strip()
+        ]
         self.materials_updated.emit(concrete_ppts)
 
         rebar_ppts = []
@@ -68,6 +71,7 @@ if __name__ == "__main__":
     # Create new QApplication instance
     app = Qtw.QApplication(sys.argv)
     # Create window object (could also be a widget)
-    window = SoilsDialog(Qtw.QMainWindow)
+    conc = Concrete("test", 25, 24, "normal")
+    window = MaterialsDialog(conc)
     # Handle application shutdown
     sys.exit(app.exec())
