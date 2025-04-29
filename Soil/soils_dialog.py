@@ -11,7 +11,11 @@ from Classes.Soil import Soil
 class SoilsDialog(Qtw.QDialog, Ui_dl_soils):
     # Signals
     soil_updated = Qtc.Signal(list)
-    def __init__(self, soil):
+    def __init__(self, soil: object) -> None:
+        """
+
+        :rtype: None
+        """
         super().__init__()
         # Run setup method of UI file
         # This sets up and UI that was created in the UI file

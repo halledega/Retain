@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.2
+## Created by: Qt User Interface Compiler version 6.8.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,14 +16,18 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QMainWindow, QMenu,
-    QMenuBar, QSizePolicy, QStatusBar, QWidget)
+from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QGraphicsView,
+    QGroupBox, QHBoxLayout, QLabel, QMainWindow,
+    QMenu, QMenuBar, QSizePolicy, QSlider,
+    QStatusBar, QWidget)
 
 class Ui_mw_MainWindow(object):
     def setupUi(self, mw_MainWindow):
         if not mw_MainWindow.objectName():
             mw_MainWindow.setObjectName(u"mw_MainWindow")
-        mw_MainWindow.resize(835, 591)
+        mw_MainWindow.resize(1000, 800)
+        mw_MainWindow.setMinimumSize(QSize(1000, 800))
+        mw_MainWindow.setMaximumSize(QSize(1000, 800))
         self.a_about = QAction(mw_MainWindow)
         self.a_about.setObjectName(u"a_about")
         self.a_new = QAction(mw_MainWindow)
@@ -50,12 +54,104 @@ class Ui_mw_MainWindow(object):
         self.a_defineSeismicLoads.setObjectName(u"a_defineSeismicLoads")
         self.centralwidget = QWidget(mw_MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.gridLayout = QGridLayout(self.centralwidget)
-        self.gridLayout.setObjectName(u"gridLayout")
+        self.horizontalLayout = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.groupBox = QGroupBox(self.centralwidget)
+        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setMinimumSize(QSize(300, 0))
+        self.groupBox.setMaximumSize(QSize(300, 16777215))
+        self.formLayout = QFormLayout(self.groupBox)
+        self.formLayout.setObjectName(u"formLayout")
+        self.hs_wall_height = QSlider(self.groupBox)
+        self.hs_wall_height.setObjectName(u"hs_wall_height")
+        self.hs_wall_height.setOrientation(Qt.Orientation.Horizontal)
+
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.hs_wall_height)
+
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
+
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label)
+
+        self.label_2 = QLabel(self.groupBox)
+        self.label_2.setObjectName(u"label_2")
+
+        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.label_2)
+
+        self.hs_wall_thickness = QSlider(self.groupBox)
+        self.hs_wall_thickness.setObjectName(u"hs_wall_thickness")
+        self.hs_wall_thickness.setOrientation(Qt.Orientation.Horizontal)
+
+        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.hs_wall_thickness)
+
+        self.label_3 = QLabel(self.groupBox)
+        self.label_3.setObjectName(u"label_3")
+
+        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.label_3)
+
+        self.hs_footing_width = QSlider(self.groupBox)
+        self.hs_footing_width.setObjectName(u"hs_footing_width")
+        self.hs_footing_width.setOrientation(Qt.Orientation.Horizontal)
+
+        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.hs_footing_width)
+
+        self.label_4 = QLabel(self.groupBox)
+        self.label_4.setObjectName(u"label_4")
+
+        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.label_4)
+
+        self.hs_footing_thickness = QSlider(self.groupBox)
+        self.hs_footing_thickness.setObjectName(u"hs_footing_thickness")
+        self.hs_footing_thickness.setOrientation(Qt.Orientation.Horizontal)
+
+        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.hs_footing_thickness)
+
+        self.label_5 = QLabel(self.groupBox)
+        self.label_5.setObjectName(u"label_5")
+
+        self.formLayout.setWidget(7, QFormLayout.LabelRole, self.label_5)
+
+        self.hs_toe_length = QSlider(self.groupBox)
+        self.hs_toe_length.setObjectName(u"hs_toe_length")
+        self.hs_toe_length.setOrientation(Qt.Orientation.Horizontal)
+
+        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.hs_toe_length)
+
+        self.line = QFrame(self.groupBox)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.Shape.HLine)
+        self.line.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.formLayout.setWidget(3, QFormLayout.SpanningRole, self.line)
+
+        self.label_6 = QLabel(self.groupBox)
+        self.label_6.setObjectName(u"label_6")
+
+        self.formLayout.setWidget(0, QFormLayout.SpanningRole, self.label_6)
+
+        self.label_7 = QLabel(self.groupBox)
+        self.label_7.setObjectName(u"label_7")
+
+        self.formLayout.setWidget(4, QFormLayout.SpanningRole, self.label_7)
+
+
+        self.horizontalLayout.addWidget(self.groupBox)
+
+        self.gv_main_canvas = QGraphicsView(self.centralwidget)
+        self.gv_main_canvas.setObjectName(u"gv_main_canvas")
+        brush = QBrush(QColor(199, 199, 199, 255))
+        brush.setStyle(Qt.CrossPattern)
+        self.gv_main_canvas.setBackgroundBrush(brush)
+        brush1 = QBrush(QColor(0, 0, 0, 255))
+        brush1.setStyle(Qt.CrossPattern)
+        self.gv_main_canvas.setForegroundBrush(brush1)
+
+        self.horizontalLayout.addWidget(self.gv_main_canvas)
+
         mw_MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(mw_MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 835, 33))
+        self.menubar.setGeometry(QRect(0, 0, 1000, 33))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
         self.menuEdit = QMenu(self.menubar)
@@ -110,6 +206,14 @@ class Ui_mw_MainWindow(object):
         self.a_defineSurchargeLoads.setText(QCoreApplication.translate("mw_MainWindow", u"Surcharge Loads", None))
         self.a_defineWallLoads.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Loads", None))
         self.a_defineSeismicLoads.setText(QCoreApplication.translate("mw_MainWindow", u"Semsic Loads", None))
+        self.groupBox.setTitle(QCoreApplication.translate("mw_MainWindow", u"GroupBox", None))
+        self.label.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Height:", None))
+        self.label_2.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Thickness:", None))
+        self.label_3.setText(QCoreApplication.translate("mw_MainWindow", u"Footing Width:", None))
+        self.label_4.setText(QCoreApplication.translate("mw_MainWindow", u"Foting Thickness:", None))
+        self.label_5.setText(QCoreApplication.translate("mw_MainWindow", u"Toe Length:", None))
+        self.label_6.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Dimensions:", None))
+        self.label_7.setText(QCoreApplication.translate("mw_MainWindow", u"Footing Dimensionms:", None))
         self.menuFile.setTitle(QCoreApplication.translate("mw_MainWindow", u"File", None))
         self.menuEdit.setTitle(QCoreApplication.translate("mw_MainWindow", u"Edit", None))
         self.menuDefine.setTitle(QCoreApplication.translate("mw_MainWindow", u"Define", None))

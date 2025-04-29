@@ -61,8 +61,15 @@ def create_table(conn, cursor, table_name, table_keys):
 
     return f"Table '{table_name}' created successfully with auto-incrementing 'id'."
 
-def return_data(conn, cursor, table_name):
-    cursor.execute(f"SELECT * FROM {table_name}")
+
+def return_data(conn, cursor, table_name, items=None):
+    if items:
+        columns = ', '.join(items)
+    else:
+        columns = '*'
+
+    query = f"SELECT {columns} FROM {table_name}"
+    cursor.execute(query)
     rows = cursor.fetchall()
     return rows
 
