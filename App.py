@@ -148,6 +148,22 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
                          250 # toe length
         )
 
+        # Set Initial Wall Properties to Slider and Assoiaed TextLables
+        self.hs_wall_height.setValue(self.wall.grade_difference)
+        self.tl_wall_height.setText(f"{str(self.wall.grade_difference)} mm")
+
+        self.hs_wall_thickness.setValue(self.wall.thickness)
+        self.tl_wall_thickness.setText(f"{str(self.wall.thickness)} mm")
+
+        self.hs_footing_width.setValue(self.wall.footing_width)
+        self.tl_footing_width.setText(f"{str(self.wall.footing_width)} mm")
+
+        self.hs_footing_thickness.setValue(self.wall.footing_thickness)
+        self.tl_footing_thickness.setText(f"{str(self.wall.footing_thickness)} mm")
+
+        self.hs_toe_length.setValue(self.wall.toe_length)
+        self.tl_toe_length.setText(f"{str(self.wall.toe_length)} mm")
+
         # Draw Wall
         self.draw_wall()
 
@@ -207,40 +223,32 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
 
         self.scene.clear()
 
+        print(self.gv_main_canvas.width(), self.gv_main_canvas.height())
+
+        scaler = 0.35
+
         # --- Draw Footing at Real Dimensions (mm) ---
-        footing_rect = Qtc.QRectF(
-            0,
-            0,
-            1000000, #self.wall.footing_width,
-            1000000, #self.wall.footing_thickness
-        )
+        footing_rect = self.wall.get_footing_rect(scaler)
         footing = Qtw.QGraphicsRectItem(footing_rect)
         footing.setBrush(Qtgui.QBrush(Qtgui.QColor("darkgray")))
         self.scene.addItem(footing)
 
         # --- Draw Wall ---
-        wall_x = (self.wall.footing_width - self.wall.thickness) / 2
-        wall_y = -self.wall.height  # draw upwards
-        wall_rect = Qtc.QRectF(
-            wall_x,
-            wall_y,
-            #self.wall.thickness,
-            #self.wall.height
-        )
+        wall_rect = self.wall.get_wall_rect(scaler)
         wall = Qtw.QGraphicsRectItem(wall_rect)
         wall.setBrush(Qtgui.QBrush(Qtgui.QColor("lightgray")))
         self.scene.addItem(wall)
 
         # --- Adjust Scene ---
         # Expand scene rect a little so it doesn't touch edges
-        padding = 100  # mm padding around drawing
+        padding = 0  # mm padding around drawing
         bounding_rect = self.scene.itemsBoundingRect()
         expanded_rect = bounding_rect.adjusted(-padding, -padding, padding, padding)
 
         self.scene.setSceneRect(expanded_rect)
 
         # --- Fit View ---
-        self.gv_main_canvas.fitInView(expanded_rect, Qtc.Qt.KeepAspectRatio)
+        # self.gv_main_canvas.fitInView(expanded_rect, Qtc.Qt.AspectRatioMode.KeepAspectRatioByExpanding)
 
 
 if __name__ == "__main__":

@@ -4,64 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bb15774-2509-429c-9d57-eeb2bcd2aeb1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Classes/Rebar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Classes/Wall.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main/Canvas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Rebar_Model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/__init__.py" afterDir="false" />
+    <list default="true" id="026bb572-1c5a-4170-a0a4-944064e40a98" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/Retain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Retain.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/App.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/db_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Database/db_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/Wall.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Wall.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/Canvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Canvas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/UI/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/UI/main_window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/UI/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Main/UI/main_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Materials/UI/materials_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials/UI/materials_dialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Materials/UI/materials_dialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Materials/UI/materials_dialog.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Materials/materials_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials/materials_dialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Soil/soils_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/Soil/soils_dialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retain.db" beforeDir="false" afterPath="$PROJECT_DIR$/retain.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/PySide" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -81,41 +40,24 @@
     &quot;accountId&quot;: &quot;bd60adb8-7a85-4ab4-ab5c-0174e66fe428&quot;
   }
 }</component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Materials/materials_dialog.py" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2v3cmC5E3Kb1Djhz0HxZ9bNSRb4" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2wNlD0wDw5SsFWR5y3GyYMwOMJ2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.App.executor&quot;: &quot;Run&quot;,
-    &quot;Python.soils_dialog.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;PySide&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mhalliday/Repos/Retain&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.App.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "PySide",
+    "settings.editor.selected.configurable": "preferences.externalTools"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Repos\Python\Retain" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Python.App">
+}]]></component>
+  <component name="RunManager">
     <configuration name="App" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Retain" />
       <option name="ENV_FILES" value="" />
@@ -138,81 +80,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="soils_dialog" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Retain" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Soil" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Soil/soils_dialog.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.App" />
-        <item itemvalue="Python.soils_dialog" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-348a24fa61fa-5312c7369657-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-251.23774.444" />
+        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9bb15774-2509-429c-9d57-eeb2bcd2aeb1" name="Changes" comment="" />
-      <created>1743374384492</created>
+      <changelist id="026bb572-1c5a-4170-a0a4-944064e40a98" name="Changes" comment="" />
+      <created>1745889789609</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1743374384492</updated>
+      <updated>1745889789609</updated>
     </task>
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="87b8d1e6-b530-4e19-adc6-94375be531ca" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
-        <entry key="87b8d1e6-b530-4e19-adc6-94375be531ca">
-          <value>
-            <State />
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
