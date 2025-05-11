@@ -26,9 +26,9 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QGroupBox" name="groupBox">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="2" column="0">
+     <widget class="QGroupBox" name="groupBox_3">
       <property name="minimumSize">
        <size>
         <width>300</width>
@@ -42,59 +42,129 @@
        </size>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string>Result Summary</string>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Footing Width:</string>
-         </property>
-        </widget>
-       </item>
+      <layout class="QFormLayout" name="formLayout">
        <item row="0" column="0">
         <widget class="QLabel" name="label_6">
          <property name="text">
-          <string>Wall Dimensions:</string>
+          <string>Overturning:</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="0">
-        <widget class="QLabel" name="label_5">
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_7">
          <property name="text">
-          <string>Toe Length:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Wall Thickness:</string>
+          <string>TextLabel</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="label_14">
          <property name="text">
-          <string>Wall Height:</string>
+          <string>Sliding:</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_7">
+       <item row="1" column="1">
+        <widget class="QLabel" name="label_15">
          <property name="text">
-          <string>Footing Dimensionms:</string>
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_16">
+         <property name="text">
+          <string>Bearing (US):</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="Line" name="line_3">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_18">
+         <property name="text">
+          <string>Wall Shear:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLabel" name="label_19">
+         <property name="text">
+          <string>TextLabel</string>
          </property>
         </widget>
        </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="label_20">
          <property name="text">
-          <string>Foting Thickness:</string>
+          <string>Wall Bending:</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="0" colspan="3">
+       <item row="6" column="1">
+        <widget class="QLabel" name="label_21">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_22">
+         <property name="text">
+          <string>Bearing (SLS):</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="label_23">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_24">
+         <property name="text">
+          <string>Footing Shear:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLabel" name="label_25">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_26">
+         <property name="text">
+          <string>Foting Bending:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLabel" name="label_27">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0" colspan="2">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
@@ -107,122 +177,10 @@
          </property>
         </spacer>
        </item>
-       <item row="7" column="1">
-        <widget class="QSlider" name="hs_toe_length">
-         <property name="maximum">
-          <number>5000</number>
-         </property>
-         <property name="singleStep">
-          <number>150</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="2">
-        <widget class="QLabel" name="tl_toe_length">
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QSlider" name="hs_footing_thickness">
-         <property name="minimum">
-          <number>250</number>
-         </property>
-         <property name="maximum">
-          <number>1000</number>
-         </property>
-         <property name="singleStep">
-          <number>50</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="2">
-        <widget class="QLabel" name="tl_footing_thickness">
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QSlider" name="hs_footing_width">
-         <property name="minimum">
-          <number>600</number>
-         </property>
-         <property name="maximum">
-          <number>5000</number>
-         </property>
-         <property name="singleStep">
-          <number>150</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="2">
-        <widget class="QLabel" name="tl_footing_width">
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QSlider" name="hs_wall_thickness">
-         <property name="minimum">
-          <number>150</number>
-         </property>
-         <property name="maximum">
-          <number>450</number>
-         </property>
-         <property name="singleStep">
-          <number>50</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QLabel" name="tl_wall_thickness">
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QSlider" name="hs_wall_height">
-         <property name="minimum">
-          <number>600</number>
-         </property>
-         <property name="maximum">
-          <number>3000</number>
-         </property>
-         <property name="singleStep">
-          <number>150</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QLabel" name="tl_wall_height">
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
     </item>
-    <item>
+    <item row="0" column="2" rowspan="3">
      <widget class="QGraphicsView" name="gv_main_canvas">
       <property name="backgroundBrush">
        <brush brushstyle="CrossPattern">
@@ -242,6 +200,213 @@
         </color>
        </brush>
       </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>9868686</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Footing Dimensions:</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Heel Length (heel):</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>mm</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="le_footing_width"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Toe Length (toe):</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="tl_heel_length">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Foting Thickness (D):</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="le_footing_thickness"/>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="tl_footing_thickness">
+         <property name="text">
+          <string>mm</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>mm</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="le_toe_length">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Footing Width (b)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="tl_footing_width">
+         <property name="text">
+          <string>mm</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Wall Dimensions:</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="le_grade_difference"/>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="le_toe_cover"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Tow Cover (tc):</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Grade Difference (H):</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="tl_toe_cover">
+         <property name="text">
+          <string>mm</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Wall Thickness (tw):</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QLabel" name="tl_wall_thickness">
+         <property name="text">
+          <string>mm</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="le_wall_thickness"/>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="tl_grade_difference">
+         <property name="text">
+          <string>mm</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="label_12">
+         <property name="text">
+          <string>mm</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Wall Height (hwall):</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="tl_wall_height">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -362,6 +527,15 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>le_grade_difference</tabstop>
+  <tabstop>le_toe_cover</tabstop>
+  <tabstop>le_wall_thickness</tabstop>
+  <tabstop>le_footing_width</tabstop>
+  <tabstop>le_footing_thickness</tabstop>
+  <tabstop>le_toe_length</tabstop>
+  <tabstop>gv_main_canvas</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

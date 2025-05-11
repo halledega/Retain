@@ -16,10 +16,10 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QGraphicsView, QGridLayout, QGroupBox,
-    QHBoxLayout, QLabel, QMainWindow, QMenu,
-    QMenuBar, QSizePolicy, QSlider, QSpacerItem,
-    QStatusBar, QWidget)
+from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QGraphicsView,
+    QGridLayout, QGroupBox, QLabel, QLineEdit,
+    QMainWindow, QMenu, QMenuBar, QSizePolicy,
+    QSpacerItem, QStatusBar, QWidget)
 
 class Ui_mw_MainWindow(object):
     def setupUi(self, mw_MainWindow):
@@ -54,124 +54,107 @@ class Ui_mw_MainWindow(object):
         self.a_defineSeismicLoads.setObjectName(u"a_defineSeismicLoads")
         self.centralwidget = QWidget(mw_MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.horizontalLayout = QHBoxLayout(self.centralwidget)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.groupBox = QGroupBox(self.centralwidget)
-        self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setMinimumSize(QSize(300, 0))
-        self.groupBox.setMaximumSize(QSize(300, 16777215))
-        self.gridLayout = QGridLayout(self.groupBox)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.label_3 = QLabel(self.groupBox)
-        self.label_3.setObjectName(u"label_3")
-
-        self.gridLayout.addWidget(self.label_3, 5, 0, 1, 1)
-
-        self.label_6 = QLabel(self.groupBox)
+        self.gridLayout_2 = QGridLayout(self.centralwidget)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.groupBox_3 = QGroupBox(self.centralwidget)
+        self.groupBox_3.setObjectName(u"groupBox_3")
+        self.groupBox_3.setMinimumSize(QSize(300, 0))
+        self.groupBox_3.setMaximumSize(QSize(300, 16777215))
+        self.formLayout = QFormLayout(self.groupBox_3)
+        self.formLayout.setObjectName(u"formLayout")
+        self.label_6 = QLabel(self.groupBox_3)
         self.label_6.setObjectName(u"label_6")
 
-        self.gridLayout.addWidget(self.label_6, 0, 0, 1, 1)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_6)
 
-        self.label_5 = QLabel(self.groupBox)
-        self.label_5.setObjectName(u"label_5")
-
-        self.gridLayout.addWidget(self.label_5, 7, 0, 1, 1)
-
-        self.label_2 = QLabel(self.groupBox)
-        self.label_2.setObjectName(u"label_2")
-
-        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
-
-        self.label = QLabel(self.groupBox)
-        self.label.setObjectName(u"label")
-
-        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
-
-        self.label_7 = QLabel(self.groupBox)
+        self.label_7 = QLabel(self.groupBox_3)
         self.label_7.setObjectName(u"label_7")
 
-        self.gridLayout.addWidget(self.label_7, 3, 0, 1, 1)
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.label_7)
 
-        self.label_4 = QLabel(self.groupBox)
-        self.label_4.setObjectName(u"label_4")
+        self.label_14 = QLabel(self.groupBox_3)
+        self.label_14.setObjectName(u"label_14")
 
-        self.gridLayout.addWidget(self.label_4, 6, 0, 1, 1)
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_14)
+
+        self.label_15 = QLabel(self.groupBox_3)
+        self.label_15.setObjectName(u"label_15")
+
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.label_15)
+
+        self.label_16 = QLabel(self.groupBox_3)
+        self.label_16.setObjectName(u"label_16")
+
+        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.label_16)
+
+        self.label_17 = QLabel(self.groupBox_3)
+        self.label_17.setObjectName(u"label_17")
+
+        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.label_17)
+
+        self.line_3 = QFrame(self.groupBox_3)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setFrameShape(QFrame.Shape.HLine)
+        self.line_3.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.formLayout.setWidget(4, QFormLayout.SpanningRole, self.line_3)
+
+        self.label_18 = QLabel(self.groupBox_3)
+        self.label_18.setObjectName(u"label_18")
+
+        self.formLayout.setWidget(5, QFormLayout.LabelRole, self.label_18)
+
+        self.label_19 = QLabel(self.groupBox_3)
+        self.label_19.setObjectName(u"label_19")
+
+        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.label_19)
+
+        self.label_20 = QLabel(self.groupBox_3)
+        self.label_20.setObjectName(u"label_20")
+
+        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.label_20)
+
+        self.label_21 = QLabel(self.groupBox_3)
+        self.label_21.setObjectName(u"label_21")
+
+        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.label_21)
+
+        self.label_22 = QLabel(self.groupBox_3)
+        self.label_22.setObjectName(u"label_22")
+
+        self.formLayout.setWidget(3, QFormLayout.LabelRole, self.label_22)
+
+        self.label_23 = QLabel(self.groupBox_3)
+        self.label_23.setObjectName(u"label_23")
+
+        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.label_23)
+
+        self.label_24 = QLabel(self.groupBox_3)
+        self.label_24.setObjectName(u"label_24")
+
+        self.formLayout.setWidget(7, QFormLayout.LabelRole, self.label_24)
+
+        self.label_25 = QLabel(self.groupBox_3)
+        self.label_25.setObjectName(u"label_25")
+
+        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.label_25)
+
+        self.label_26 = QLabel(self.groupBox_3)
+        self.label_26.setObjectName(u"label_26")
+
+        self.formLayout.setWidget(8, QFormLayout.LabelRole, self.label_26)
+
+        self.label_27 = QLabel(self.groupBox_3)
+        self.label_27.setObjectName(u"label_27")
+
+        self.formLayout.setWidget(8, QFormLayout.FieldRole, self.label_27)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout.addItem(self.verticalSpacer, 8, 0, 1, 3)
-
-        self.hs_toe_length = QSlider(self.groupBox)
-        self.hs_toe_length.setObjectName(u"hs_toe_length")
-        self.hs_toe_length.setMaximum(5000)
-        self.hs_toe_length.setSingleStep(150)
-        self.hs_toe_length.setOrientation(Qt.Orientation.Horizontal)
-
-        self.gridLayout.addWidget(self.hs_toe_length, 7, 1, 1, 1)
-
-        self.tl_toe_length = QLabel(self.groupBox)
-        self.tl_toe_length.setObjectName(u"tl_toe_length")
-
-        self.gridLayout.addWidget(self.tl_toe_length, 7, 2, 1, 1)
-
-        self.hs_footing_thickness = QSlider(self.groupBox)
-        self.hs_footing_thickness.setObjectName(u"hs_footing_thickness")
-        self.hs_footing_thickness.setMinimum(250)
-        self.hs_footing_thickness.setMaximum(1000)
-        self.hs_footing_thickness.setSingleStep(50)
-        self.hs_footing_thickness.setOrientation(Qt.Orientation.Horizontal)
-
-        self.gridLayout.addWidget(self.hs_footing_thickness, 6, 1, 1, 1)
-
-        self.tl_footing_thickness = QLabel(self.groupBox)
-        self.tl_footing_thickness.setObjectName(u"tl_footing_thickness")
-
-        self.gridLayout.addWidget(self.tl_footing_thickness, 6, 2, 1, 1)
-
-        self.hs_footing_width = QSlider(self.groupBox)
-        self.hs_footing_width.setObjectName(u"hs_footing_width")
-        self.hs_footing_width.setMinimum(600)
-        self.hs_footing_width.setMaximum(5000)
-        self.hs_footing_width.setSingleStep(150)
-        self.hs_footing_width.setOrientation(Qt.Orientation.Horizontal)
-
-        self.gridLayout.addWidget(self.hs_footing_width, 5, 1, 1, 1)
-
-        self.tl_footing_width = QLabel(self.groupBox)
-        self.tl_footing_width.setObjectName(u"tl_footing_width")
-
-        self.gridLayout.addWidget(self.tl_footing_width, 5, 2, 1, 1)
-
-        self.hs_wall_thickness = QSlider(self.groupBox)
-        self.hs_wall_thickness.setObjectName(u"hs_wall_thickness")
-        self.hs_wall_thickness.setMinimum(150)
-        self.hs_wall_thickness.setMaximum(450)
-        self.hs_wall_thickness.setSingleStep(50)
-        self.hs_wall_thickness.setOrientation(Qt.Orientation.Horizontal)
-
-        self.gridLayout.addWidget(self.hs_wall_thickness, 2, 1, 1, 1)
-
-        self.tl_wall_thickness = QLabel(self.groupBox)
-        self.tl_wall_thickness.setObjectName(u"tl_wall_thickness")
-
-        self.gridLayout.addWidget(self.tl_wall_thickness, 2, 2, 1, 1)
-
-        self.hs_wall_height = QSlider(self.groupBox)
-        self.hs_wall_height.setObjectName(u"hs_wall_height")
-        self.hs_wall_height.setMinimum(600)
-        self.hs_wall_height.setMaximum(3000)
-        self.hs_wall_height.setSingleStep(150)
-        self.hs_wall_height.setOrientation(Qt.Orientation.Horizontal)
-
-        self.gridLayout.addWidget(self.hs_wall_height, 1, 1, 1, 1)
-
-        self.tl_wall_height = QLabel(self.groupBox)
-        self.tl_wall_height.setObjectName(u"tl_wall_height")
-
-        self.gridLayout.addWidget(self.tl_wall_height, 1, 2, 1, 1)
+        self.formLayout.setItem(9, QFormLayout.SpanningRole, self.verticalSpacer)
 
 
-        self.horizontalLayout.addWidget(self.groupBox)
+        self.gridLayout_2.addWidget(self.groupBox_3, 2, 0, 1, 1)
 
         self.gv_main_canvas = QGraphicsView(self.centralwidget)
         self.gv_main_canvas.setObjectName(u"gv_main_canvas")
@@ -182,7 +165,159 @@ class Ui_mw_MainWindow(object):
         brush1.setStyle(Qt.CrossPattern)
         self.gv_main_canvas.setForegroundBrush(brush1)
 
-        self.horizontalLayout.addWidget(self.gv_main_canvas)
+        self.gridLayout_2.addWidget(self.gv_main_canvas, 0, 2, 3, 1)
+
+        self.groupBox_2 = QGroupBox(self.centralwidget)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.groupBox_2.setMinimumSize(QSize(300, 0))
+        self.groupBox_2.setMaximumSize(QSize(300, 9868686))
+        self.gridLayout_3 = QGridLayout(self.groupBox_2)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.label_9 = QLabel(self.groupBox_2)
+        self.label_9.setObjectName(u"label_9")
+
+        self.gridLayout_3.addWidget(self.label_9, 3, 0, 1, 1)
+
+        self.label_11 = QLabel(self.groupBox_2)
+        self.label_11.setObjectName(u"label_11")
+
+        self.gridLayout_3.addWidget(self.label_11, 2, 2, 1, 1)
+
+        self.le_footing_width = QLineEdit(self.groupBox_2)
+        self.le_footing_width.setObjectName(u"le_footing_width")
+
+        self.gridLayout_3.addWidget(self.le_footing_width, 0, 1, 1, 1)
+
+        self.label_5 = QLabel(self.groupBox_2)
+        self.label_5.setObjectName(u"label_5")
+
+        self.gridLayout_3.addWidget(self.label_5, 2, 0, 1, 1)
+
+        self.tl_heel_length = QLabel(self.groupBox_2)
+        self.tl_heel_length.setObjectName(u"tl_heel_length")
+
+        self.gridLayout_3.addWidget(self.tl_heel_length, 3, 1, 1, 1)
+
+        self.label_4 = QLabel(self.groupBox_2)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout_3.addWidget(self.label_4, 1, 0, 1, 1)
+
+        self.le_footing_thickness = QLineEdit(self.groupBox_2)
+        self.le_footing_thickness.setObjectName(u"le_footing_thickness")
+
+        self.gridLayout_3.addWidget(self.le_footing_thickness, 1, 1, 1, 1)
+
+        self.tl_footing_thickness = QLabel(self.groupBox_2)
+        self.tl_footing_thickness.setObjectName(u"tl_footing_thickness")
+
+        self.gridLayout_3.addWidget(self.tl_footing_thickness, 1, 2, 1, 1)
+
+        self.label_13 = QLabel(self.groupBox_2)
+        self.label_13.setObjectName(u"label_13")
+
+        self.gridLayout_3.addWidget(self.label_13, 3, 2, 1, 1)
+
+        self.le_toe_length = QLineEdit(self.groupBox_2)
+        self.le_toe_length.setObjectName(u"le_toe_length")
+
+        self.gridLayout_3.addWidget(self.le_toe_length, 2, 1, 1, 1)
+
+        self.label_3 = QLabel(self.groupBox_2)
+        self.label_3.setObjectName(u"label_3")
+
+        self.gridLayout_3.addWidget(self.label_3, 0, 0, 1, 1)
+
+        self.tl_footing_width = QLabel(self.groupBox_2)
+        self.tl_footing_width.setObjectName(u"tl_footing_width")
+
+        self.gridLayout_3.addWidget(self.tl_footing_width, 0, 2, 1, 1)
+
+        self.line = QFrame(self.groupBox_2)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.Shape.VLine)
+        self.line.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.gridLayout_3.addWidget(self.line, 4, 1, 1, 1)
+
+
+        self.gridLayout_2.addWidget(self.groupBox_2, 1, 0, 1, 1)
+
+        self.groupBox = QGroupBox(self.centralwidget)
+        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setMinimumSize(QSize(300, 0))
+        self.groupBox.setMaximumSize(QSize(300, 16777215))
+        self.gridLayout = QGridLayout(self.groupBox)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.le_grade_difference = QLineEdit(self.groupBox)
+        self.le_grade_difference.setObjectName(u"le_grade_difference")
+
+        self.gridLayout.addWidget(self.le_grade_difference, 0, 1, 1, 1)
+
+        self.le_toe_cover = QLineEdit(self.groupBox)
+        self.le_toe_cover.setObjectName(u"le_toe_cover")
+
+        self.gridLayout.addWidget(self.le_toe_cover, 1, 1, 1, 1)
+
+        self.label_10 = QLabel(self.groupBox)
+        self.label_10.setObjectName(u"label_10")
+
+        self.gridLayout.addWidget(self.label_10, 1, 0, 1, 1)
+
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
+
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+
+        self.tl_toe_cover = QLabel(self.groupBox)
+        self.tl_toe_cover.setObjectName(u"tl_toe_cover")
+
+        self.gridLayout.addWidget(self.tl_toe_cover, 1, 2, 1, 1)
+
+        self.label_2 = QLabel(self.groupBox)
+        self.label_2.setObjectName(u"label_2")
+
+        self.gridLayout.addWidget(self.label_2, 4, 0, 1, 1)
+
+        self.tl_wall_thickness = QLabel(self.groupBox)
+        self.tl_wall_thickness.setObjectName(u"tl_wall_thickness")
+
+        self.gridLayout.addWidget(self.tl_wall_thickness, 4, 2, 1, 1)
+
+        self.le_wall_thickness = QLineEdit(self.groupBox)
+        self.le_wall_thickness.setObjectName(u"le_wall_thickness")
+
+        self.gridLayout.addWidget(self.le_wall_thickness, 4, 1, 1, 1)
+
+        self.tl_grade_difference = QLabel(self.groupBox)
+        self.tl_grade_difference.setObjectName(u"tl_grade_difference")
+
+        self.gridLayout.addWidget(self.tl_grade_difference, 0, 2, 1, 1)
+
+        self.label_12 = QLabel(self.groupBox)
+        self.label_12.setObjectName(u"label_12")
+
+        self.gridLayout.addWidget(self.label_12, 3, 2, 1, 1)
+
+        self.label_8 = QLabel(self.groupBox)
+        self.label_8.setObjectName(u"label_8")
+
+        self.gridLayout.addWidget(self.label_8, 3, 0, 1, 1)
+
+        self.tl_wall_height = QLabel(self.groupBox)
+        self.tl_wall_height.setObjectName(u"tl_wall_height")
+
+        self.gridLayout.addWidget(self.tl_wall_height, 3, 1, 1, 1)
+
+        self.line_2 = QFrame(self.groupBox)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setFrameShape(QFrame.Shape.VLine)
+        self.line_2.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.gridLayout.addWidget(self.line_2, 5, 1, 1, 1)
+
+
+        self.gridLayout_2.addWidget(self.groupBox, 0, 0, 1, 1)
 
         mw_MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(mw_MainWindow)
@@ -202,6 +337,12 @@ class Ui_mw_MainWindow(object):
         self.statusbar = QStatusBar(mw_MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         mw_MainWindow.setStatusBar(self.statusbar)
+        QWidget.setTabOrder(self.le_grade_difference, self.le_toe_cover)
+        QWidget.setTabOrder(self.le_toe_cover, self.le_wall_thickness)
+        QWidget.setTabOrder(self.le_wall_thickness, self.le_footing_width)
+        QWidget.setTabOrder(self.le_footing_width, self.le_footing_thickness)
+        QWidget.setTabOrder(self.le_footing_thickness, self.le_toe_length)
+        QWidget.setTabOrder(self.le_toe_length, self.gv_main_canvas)
 
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuEdit.menuAction())
@@ -242,18 +383,44 @@ class Ui_mw_MainWindow(object):
         self.a_defineSurchargeLoads.setText(QCoreApplication.translate("mw_MainWindow", u"Surcharge Loads", None))
         self.a_defineWallLoads.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Loads", None))
         self.a_defineSeismicLoads.setText(QCoreApplication.translate("mw_MainWindow", u"Semsic Loads", None))
-        self.groupBox.setTitle(QCoreApplication.translate("mw_MainWindow", u"GroupBox", None))
-        self.label_3.setText(QCoreApplication.translate("mw_MainWindow", u"Footing Width:", None))
-        self.label_6.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Dimensions:", None))
-        self.label_5.setText(QCoreApplication.translate("mw_MainWindow", u"Toe Length:", None))
-        self.label_2.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Thickness:", None))
-        self.label.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Height:", None))
-        self.label_7.setText(QCoreApplication.translate("mw_MainWindow", u"Footing Dimensionms:", None))
-        self.label_4.setText(QCoreApplication.translate("mw_MainWindow", u"Foting Thickness:", None))
-        self.tl_toe_length.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
-        self.tl_footing_thickness.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
-        self.tl_footing_width.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
-        self.tl_wall_thickness.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("mw_MainWindow", u"Result Summary", None))
+        self.label_6.setText(QCoreApplication.translate("mw_MainWindow", u"Overturning:", None))
+        self.label_7.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
+        self.label_14.setText(QCoreApplication.translate("mw_MainWindow", u"Sliding:", None))
+        self.label_15.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
+        self.label_16.setText(QCoreApplication.translate("mw_MainWindow", u"Bearing (US):", None))
+        self.label_17.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
+        self.label_18.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Shear:", None))
+        self.label_19.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
+        self.label_20.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Bending:", None))
+        self.label_21.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
+        self.label_22.setText(QCoreApplication.translate("mw_MainWindow", u"Bearing (SLS):", None))
+        self.label_23.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
+        self.label_24.setText(QCoreApplication.translate("mw_MainWindow", u"Footing Shear:", None))
+        self.label_25.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
+        self.label_26.setText(QCoreApplication.translate("mw_MainWindow", u"Foting Bending:", None))
+        self.label_27.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("mw_MainWindow", u"Footing Dimensions:", None))
+        self.label_9.setText(QCoreApplication.translate("mw_MainWindow", u"Heel Length (heel):", None))
+        self.label_11.setText(QCoreApplication.translate("mw_MainWindow", u"mm", None))
+        self.label_5.setText(QCoreApplication.translate("mw_MainWindow", u"Toe Length (toe):", None))
+        self.tl_heel_length.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
+        self.label_4.setText(QCoreApplication.translate("mw_MainWindow", u"Foting Thickness (D):", None))
+        self.tl_footing_thickness.setText(QCoreApplication.translate("mw_MainWindow", u"mm", None))
+        self.label_13.setText(QCoreApplication.translate("mw_MainWindow", u"mm", None))
+        self.le_toe_length.setText("")
+        self.le_toe_length.setPlaceholderText("")
+        self.label_3.setText(QCoreApplication.translate("mw_MainWindow", u"Footing Width (b)", None))
+        self.tl_footing_width.setText(QCoreApplication.translate("mw_MainWindow", u"mm", None))
+        self.groupBox.setTitle(QCoreApplication.translate("mw_MainWindow", u"Wall Dimensions:", None))
+        self.label_10.setText(QCoreApplication.translate("mw_MainWindow", u"Tow Cover (tc):", None))
+        self.label.setText(QCoreApplication.translate("mw_MainWindow", u"Grade Difference (H):", None))
+        self.tl_toe_cover.setText(QCoreApplication.translate("mw_MainWindow", u"mm", None))
+        self.label_2.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Thickness (tw):", None))
+        self.tl_wall_thickness.setText(QCoreApplication.translate("mw_MainWindow", u"mm", None))
+        self.tl_grade_difference.setText(QCoreApplication.translate("mw_MainWindow", u"mm", None))
+        self.label_12.setText(QCoreApplication.translate("mw_MainWindow", u"mm", None))
+        self.label_8.setText(QCoreApplication.translate("mw_MainWindow", u"Wall Height (hwall):", None))
         self.tl_wall_height.setText(QCoreApplication.translate("mw_MainWindow", u"TextLabel", None))
         self.menuFile.setTitle(QCoreApplication.translate("mw_MainWindow", u"File", None))
         self.menuEdit.setTitle(QCoreApplication.translate("mw_MainWindow", u"Edit", None))

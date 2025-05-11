@@ -56,10 +56,134 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
         # Display the main application window
         self.show()
 
+    def start_up(self) -> None:
+        """
+        Perform startup tasks for the MainWindow.
+
+        Connects to the settings database, retrieves default material properties (soil, concrete, rebar),
+        initializes corresponding objects, and sets default rebar settings.
+        """
+        # Initialize Default Wall Object
+        self.wall = Wall(1200, # grade difference
+                         150, # wall thickness
+                         300, # toe cover
+                         1000, # footing width
+                         300, # footing thickness
+                         250 # toe length
+        )
+
+        # Set Initial Wall Properties to Slider and Associated TextLables
+        self.le_grade_difference.setText(str(self.wall.grade_difference))
+        self.le_wall_thickness.setText(str(self.wall.thickness))
+        self.le_toe_cover.setText(str(self.wall.toe_cover))
+
+        self.le_footing_width.setText(str(self.wall.footing_width))
+        self.le_footing_thickness.setText(str(self.wall.footing_thickness))
+        self.le_toe_length.setText(str(self.wall.toe_length))
+
+        self.tl_wall_height.setText(str(self.wall.height))
+        self.tl_heel_length.setText(str(self.wall.heel_length))
+
+        # Draw Wall
+        self.draw_wall()
+
+        # Connect to settings database
+        settings_db = sql_connect('retain.db')
+
+        # Retrieve default soil, concrete, and rebar data
+        default_soil = return_data(settings_db['Connection'], settings_db['Cursor'], 'Soil')[0]
+        default_concrete = return_data(settings_db['Connection'], settings_db['Cursor'], 'Concrete')[0]
+        default_rebar = return_data(
+            settings_db['Connection'],
+            settings_db['Cursor'],
+            'Rebar',
+            ["Name", "Diameter", "Area", "Fy", "MOE"]
+        )
+
+        # Create Soil object using retrieved default values
+        self.soil = Soil(
+            default_soil[1],  # name
+            default_soil[2],  # unit weight
+            default_soil[3],  # ULS bearing resistance
+            default_soil[4],  # SLS bearing resistance
+            default_soil[5],  # friction coefficient
+            default_soil[6],  # active earth pressure coefficient
+            default_soil[7]   # passive earth pressure coefficient
+        )
+
+        # Create Concrete object using retrieved default values
+        self.concrete = Concrete(
+            default_concrete[1],  # name
+            default_concrete[2],  # compressive strength (fc)
+            default_concrete[3],  # unit weight
+            default_concrete[4]   # density
+        )
+
+        # Create Rebar objects and populate rebar dictionary
+        for bar in default_rebar:
+            self.rebar_dict[bar[0]] = Rebar(
+                bar[0],  # Name
+                bar[1],  # Diameter
+                bar[2],  # Area
+                bar[3],  # Yield strength (Fy)
+                bar[4]   # Modulus of Elasticity (MOE)
+            )
+
+        # Set default reinforcement settings
+        self.rebar_settings['smallest_bar'] = self.rebar_dict['15M']
+        self.rebar_settings['default_bar'] = self.rebar_dict['15M']
+        self.rebar_settings['largest_bar'] = self.rebar_dict['25M']
+        self.rebar_settings['min_spacing'] = 75  # Minimum spacing (mm)
+        self.rebar_settings['max_spacing'] = 400 # Maximum spacing (mm)
+
     def connect_actions(self):
+        # Menu Bar Actions
         self.a_defineSoil.triggered.connect(self.open_soils_dialog)  # "Define Soil" menu action
         self.a_defineMaterials.triggered.connect(self.open_materials_dialog)  # "Define Materials" menu action
         self.a_exit.triggered.connect(self.close)  # "Exit" menu action
+        # Sidebar
+        self.le_grade_difference.textChanged.connect(self.update_wall) # Grade Difference
+        self.le_wall_thickness.textChanged.connect(self.update_wall) # Wall Thickness
+        self.le_toe_cover.textChanged.connect(self.update_wall)
+
+        self.le_footing_width.textChanged.connect(self.update_wall)
+        self.le_footing_thickness.textChanged.connect(self.update_wall)
+        self.le_toe_length.textChanged.connect(self.update_wall)
+
+
+    def draw_wall(self) -> None:
+        """Draw the footing and wall on the graphics scene, and auto-fit it in the view."""
+        if not self.wall:
+            return
+
+        self.scene.clear()
+
+        # print(self.gv_main_canvas.width(), self.gv_main_canvas.height())
+
+        scaler = 0.35
+
+        # --- Draw Footing at Real Dimensions (mm) ---
+        footing_rect = self.wall.get_footing_rect(scaler)
+        footing = Qtw.QGraphicsRectItem(footing_rect)
+        footing.setBrush(Qtgui.QBrush(Qtgui.QColor("darkgray")))
+        self.scene.addItem(footing)
+
+        # --- Draw Wall ---
+        wall_rect = self.wall.get_wall_rect(scaler)
+        wall = Qtw.QGraphicsRectItem(wall_rect)
+        wall.setBrush(Qtgui.QBrush(Qtgui.QColor("lightgray")))
+        self.scene.addItem(wall)
+
+        # --- Adjust Scene ---
+        # Expand scene rect a little so it doesn't touch edges
+        padding = 0  # mm padding around drawing
+        bounding_rect = self.scene.itemsBoundingRect()
+        expanded_rect = bounding_rect.adjusted(-padding, -padding, padding, padding)
+
+        self.scene.setSceneRect(expanded_rect)
+
+        # --- Fit View ---
+        # self.gv_main_canvas.fitInView(expanded_rect, Qtc.Qt.AspectRatioMode.KeepAspectRatioByExpanding)
 
     @Qtc.Slot()
     def open_soils_dialog(self) -> None:
@@ -132,123 +256,17 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
         self.rebar_settings['min_spacing'] = new_rebar[3]
         self.rebar_settings['max_spacing'] = new_rebar[4]
 
-    def start_up(self) -> None:
-        """
-        Perform startup tasks for the MainWindow.
+    @Qtc.Slot()
+    def update_wall(self) -> None:
+        self.wall.grade_difference = float(self.le_grade_difference.text().strip())
+        self.wall.thickness = float(self.le_wall_thickness.text().strip())
+        self.wall.footing_thickness = float(self.le_footing_thickness.text().strip())
+        self.wall.footing_width= float(self.le_footing_width.text().strip())
+        self.wall.toe_length = float(self.le_toe_length.text().strip())
+        self.wall.toe_cover = float(self.le_toe_cover.text().strip())
 
-        Connects to the settings database, retrieves default material properties (soil, concrete, rebar),
-        initializes corresponding objects, and sets default rebar settings.
-        """
-        # Initialize Default Wall Object
-        self.wall = Wall(1200, # grade difference
-                         150, # wall thickness
-                         300, # toe cover
-                         1000, # footing width
-                         300, # footing thickness
-                         250 # toe length
-        )
-
-        # Set Initial Wall Properties to Slider and Assoiaed TextLables
-        self.hs_wall_height.setValue(self.wall.grade_difference)
-        self.tl_wall_height.setText(f"{str(self.wall.grade_difference)} mm")
-
-        self.hs_wall_thickness.setValue(self.wall.thickness)
-        self.tl_wall_thickness.setText(f"{str(self.wall.thickness)} mm")
-
-        self.hs_footing_width.setValue(self.wall.footing_width)
-        self.tl_footing_width.setText(f"{str(self.wall.footing_width)} mm")
-
-        self.hs_footing_thickness.setValue(self.wall.footing_thickness)
-        self.tl_footing_thickness.setText(f"{str(self.wall.footing_thickness)} mm")
-
-        self.hs_toe_length.setValue(self.wall.toe_length)
-        self.tl_toe_length.setText(f"{str(self.wall.toe_length)} mm")
-
-        # Draw Wall
-        self.draw_wall()
-
-        # Connect to settings database
-        settings_db = sql_connect('retain.db')
-
-        # Retrieve default soil, concrete, and rebar data
-        default_soil = return_data(settings_db['Connection'], settings_db['Cursor'], 'Soil')[0]
-        default_concrete = return_data(settings_db['Connection'], settings_db['Cursor'], 'Concrete')[0]
-        default_rebar = return_data(
-            settings_db['Connection'],
-            settings_db['Cursor'],
-            'Rebar',
-            ["Name", "Diameter", "Area", "Fy", "MOE"]
-        )
-
-        # Create Soil object using retrieved default values
-        self.soil = Soil(
-            default_soil[1],  # name
-            default_soil[2],  # unit weight
-            default_soil[3],  # ULS bearing resistance
-            default_soil[4],  # SLS bearing resistance
-            default_soil[5],  # friction coefficient
-            default_soil[6],  # active earth pressure coefficient
-            default_soil[7]   # passive earth pressure coefficient
-        )
-
-        # Create Concrete object using retrieved default values
-        self.concrete = Concrete(
-            default_concrete[1],  # name
-            default_concrete[2],  # compressive strength (fc)
-            default_concrete[3],  # unit weight
-            default_concrete[4]   # density
-        )
-
-        # Create Rebar objects and populate rebar dictionary
-        for bar in default_rebar:
-            self.rebar_dict[bar[0]] = Rebar(
-                bar[0],  # Name
-                bar[1],  # Diameter
-                bar[2],  # Area
-                bar[3],  # Yield strength (Fy)
-                bar[4]   # Modulus of Elasticity (MOE)
-            )
-
-        # Set default reinforcement settings
-        self.rebar_settings['smallest_bar'] = self.rebar_dict['15M']
-        self.rebar_settings['default_bar'] = self.rebar_dict['15M']
-        self.rebar_settings['largest_bar'] = self.rebar_dict['25M']
-        self.rebar_settings['min_spacing'] = 75  # Minimum spacing (mm)
-        self.rebar_settings['max_spacing'] = 400 # Maximum spacing (mm)
-
-    def draw_wall(self) -> None:
-        """Draw the footing and wall on the graphics scene, and auto-fit it in the view."""
-        if not self.wall:
-            return
-
-        self.scene.clear()
-
-        print(self.gv_main_canvas.width(), self.gv_main_canvas.height())
-
-        scaler = 0.35
-
-        # --- Draw Footing at Real Dimensions (mm) ---
-        footing_rect = self.wall.get_footing_rect(scaler)
-        footing = Qtw.QGraphicsRectItem(footing_rect)
-        footing.setBrush(Qtgui.QBrush(Qtgui.QColor("darkgray")))
-        self.scene.addItem(footing)
-
-        # --- Draw Wall ---
-        wall_rect = self.wall.get_wall_rect(scaler)
-        wall = Qtw.QGraphicsRectItem(wall_rect)
-        wall.setBrush(Qtgui.QBrush(Qtgui.QColor("lightgray")))
-        self.scene.addItem(wall)
-
-        # --- Adjust Scene ---
-        # Expand scene rect a little so it doesn't touch edges
-        padding = 0  # mm padding around drawing
-        bounding_rect = self.scene.itemsBoundingRect()
-        expanded_rect = bounding_rect.adjusted(-padding, -padding, padding, padding)
-
-        self.scene.setSceneRect(expanded_rect)
-
-        # --- Fit View ---
-        # self.gv_main_canvas.fitInView(expanded_rect, Qtc.Qt.AspectRatioMode.KeepAspectRatioByExpanding)
+        self.tl_wall_height.setText(str(self.wall.height))
+        self.tl_heel_length.setText(str(self.wall.heel_length))
 
 
 if __name__ == "__main__":

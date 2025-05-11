@@ -1,40 +1,81 @@
-from enum import Enum 
+from enum import Enum
+from abc import ABC, abstractmethod
+
+from Classes.Wall import Wall
+
 
 class Load_Category(Enum):
     DEAD = 1
     LIVE = 2
     STORGAE_LIVE = 3
     SNOW = 4
-    SOIL = 5
-    COMPACTION = 6
+    SEISMIC = 5
+    SOIL = 6
+    COMPACTION = 7
 
 class Load_Type(Enum):
     HYDOSTATIC = 1
     COMPACTION = 2
     SURCHARGE = 3
     WALL = 4
+    SEISMIC = 5
 
-class Load():
+class Load(ABC):
     def __init__(self, load_type: Load_Type, category: Load_Category, name: str, value: float) -> None:
-        self.Name = name
-        self.Category = category
-        self.Type = load_type
-        self.Value = value
+        self.name = name
+        self.category = category
+        self.Load_type = load_type
+        self.value = value
 
-class Wall():
-    def __init__(self, name: str, height: float, wall_thickness: float, toe_length: float, footing_length: float, heel_length: float, concrete: Concrete) -> None:
-        self.Name = name
-        self.Height = height
-        self.Wall_Thickness = wall_thickness
-        self.Toe_length = toe_length
-        self.Footing_Width = footing_width
-        self.Heel_Length = heel_length
+    @abstractmethod
+    def P(self, wall) -> float:
+        pass
 
-    self.Concrete: Concrete
-    
-    self.Loads = {}
+    @abstractmethod
+    def M(self, wall):
+        pass
 
-    def Add_Load(load_type: Load_type, category: Load_Castegory, name: str, value:float) -> None:
-        self.Loads[name] = Load(name, category, load_type, value)
-        
-    
+class HydroStatic(Load):
+    def P(self, wall: Wall) -> float:
+        h = (wall.height + wall.toe_cover + wall.footing_thickness) / 1000
+        p = self.value * h / 2
+        return p
+
+    def M(self, wall: Wall) -> float:
+        h = (wall.height + wall.toe_cover + wall.footing_thickness) / 1000
+        x = h / 2
+        p = self.value * h / 2
+        m = p * x
+        return m
+
+    def W(self, wall: Wall) -> float:
+        w = self.value * wall.heel_length * wall.height
+        return w
+
+class Surcharge(Load):
+    def P(self, wall: Wall) -> float:
+        pass
+
+    def M(self, wall: Wall) -> float:
+        pass
+
+class Wall(Load):
+    def P(self, wall: Wall) -> float:
+        pass
+
+    def M(self, wall: Wall) -> float:
+        pass
+
+class Compaction(Load):
+    def P(self, wall: Wall) -> float:
+        pass
+
+    def M(self, wall: Wall) -> float:
+        pass
+
+class Seismic(Load):
+    def P(self, wall: Wall) -> float:
+        pass
+
+    def M(self, wall: Wall) -> float:
+        pass
