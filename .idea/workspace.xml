@@ -5,18 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="026bb572-1c5a-4170-a0a4-944064e40a98" name="Changes" comment="General Update">
+      <change afterPath="$PROJECT_DIR$/Classes/LoadManager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Loads/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Loads/loads_dialog.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/App.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Classes/Load.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jupyter/Load.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jupyter/Load.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Jupyter/Retain.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Jupyter/Retain.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/UI/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main/UI/main_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/UI/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Main/UI/main_window.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Soil/soils_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/Soil/soils_dialog.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -61,6 +70,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="App" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Retain" />
@@ -94,8 +108,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PY-251.25410.122" />
-        <option value="bundled-python-sdk-880ecab49056-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.122" />
+        <option value="bundled-python-sdk-e0ed3721d81e-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.159" />
       </set>
     </attachedChunks>
   </component>
@@ -108,6 +121,15 @@
       <option name="presentableId" value="Default" />
       <updated>1745889789609</updated>
       <workItem from="1746999562183" duration="4998000" />
+      <workItem from="1747004999337" duration="27000" />
+      <workItem from="1747196552668" duration="2679000" />
+      <workItem from="1747364636165" duration="2574000" />
+      <workItem from="1747604587494" duration="2033000" />
+      <workItem from="1747607499771" duration="833000" />
+      <workItem from="1747691460197" duration="1211000" />
+      <workItem from="1747710185341" duration="2546000" />
+      <workItem from="1749183501540" duration="1768000" />
+      <workItem from="1750027685565" duration="25000" />
     </task>
     <task id="LOCAL-00001" summary="General Update">
       <option name="closed" value="true" />
@@ -117,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746405419020</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="General Update">
+      <option name="closed" value="true" />
+      <created>1747005015292</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747005015292</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +169,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="General Update" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Retain$App.coverage" NAME="App Coverage Results" MODIFIED="1747000703769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Retain$App.coverage" NAME="App Coverage Results" MODIFIED="1749185114118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

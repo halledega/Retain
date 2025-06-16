@@ -5,6 +5,8 @@ import sys
 from PySide6 import QtCore as Qtc
 from PySide6 import QtWidgets as Qtw
 from PySide6 import QtGui as Qtgui
+
+from Loads.loads_dialog import LoadsDialog
 # UI Imports
 from Main.UI.main_window import Ui_mw_MainWindow
 from Soil.soils_dialog import SoilsDialog
@@ -16,6 +18,9 @@ from Classes.Wall import Wall
 from Classes.Soil import Soil
 from Classes.Concrete import Concrete
 from Classes.Rebar import Rebar
+from Classes.Load import HydroStaticLoad, CompactionLoad, LoadType, LoadCategory
+from Classes.LoadManager import LoadManager
+
 
 class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
     """
@@ -46,6 +51,10 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
         self.concrete = None  # Placeholder for concrete material information
         self.rebar_dict = {}  # Dictionary to hold rebar types and properties
         self.rebar_settings = {}  # Dictionary for additional rebar settings
+        self.loads = [] # Placeholder list for loads
+
+        # Create Instance of LoadManager
+        self.load_manager = LoadManager()
 
         # Perform startup tasks (e.g., loading defaults or preparing the environment)
         self.start_up()
@@ -71,6 +80,11 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
                          300, # footing thickness
                          250 # toe length
         )
+
+        # Add some basic loads for new file
+        # Adds Soil and Compaction
+        self.load_manager.add_load(HydroStaticLoad('soil', LoadType.HYDROSTATIC, LoadCategory.SOIL, 20.0))
+        self.load_manager.add_load(CompactionLoad('compaction', LoadType.COMPACTION, LoadCategory.COMPACTION, 10.0))
 
         # Set Initial Wall Properties to Slider and Associated TextLables
         self.le_grade_difference.setText(str(self.wall.grade_difference))
@@ -141,7 +155,10 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
         self.a_defineSoil.triggered.connect(self.open_soils_dialog)  # "Define Soil" menu action
         self.a_defineMaterials.triggered.connect(self.open_materials_dialog)  # "Define Materials" menu action
         self.a_exit.triggered.connect(self.close)  # "Exit" menu action
-        # Sidebar
+        self.a_defineSeismicLoads.triggered.connect(self.open_seismic_loads_dialog) # "Define Loads" menu action
+        self.a_defineWallLoads.triggered.connect(self.open_wall_loads_dialog)
+        self.a_defineSurchargeLoads.triggered.connect(self.open_surcharge_loads_dialog)
+
         self.le_grade_difference.textChanged.connect(self.update_wall) # Grade Difference
         self.le_wall_thickness.textChanged.connect(self.update_wall) # Wall Thickness
         self.le_toe_cover.textChanged.connect(self.update_wall)
@@ -209,6 +226,20 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
         self.form.materials_updated.connect(self.update_concrete)  # Connect concrete update
         self.form.rebar_updated.connect(self.update_rebar)  # Connect rebar update
         self.form.show()  # Show the dialog
+
+    @Qtc.Slot()
+    def open_surcharge_loads_dialog(self) -> None:
+        self.form = LoadsDialog(self.load_manager, LoadType.SEISMIC)
+        self.form.show()
+
+    @Qtc.Slot()
+    def open_wall_loads_dialog(self) -> None:
+        self.form = LoadsDialog(self.load_manager, LoadType.SEISMIC)
+        self.form.show()
+    @Qtc.Slot()
+    def open_seismic_loads_dialog(self) -> None:
+        self.form = LoadsDialog(self.load_manager, LoadType.SEISMIC)
+        self.form.show()
 
     @Qtc.Slot(list)
     def update_soil(self, new_soil: list) -> None:

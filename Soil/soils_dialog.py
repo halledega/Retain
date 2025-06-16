@@ -12,16 +12,10 @@ class SoilsDialog(Qtw.QDialog, Ui_dl_soils):
     # Signals
     soil_updated = Qtc.Signal(list)
     def __init__(self, soil: object) -> None:
-        """
-
-        :rtype: None
-        """
         super().__init__()
         # Run setup method of UI file
         # This sets up and UI that was created in the UI file
         self.setupUi(self)
-        # Get the object that called in window (should be MainWindow)
-        #self.caller = main_window
         # Connect line edit signals to slot
         self.le_name.textChanged.connect(self.check_type_string)
         # Connect to Widgets
