@@ -5,7 +5,7 @@ from PySide6 import QtCore as Qtc
 from PySide6 import QtWidgets as Qtw
 #Custom imports
 from Loads.UI.loads_dialog import Ui_dl_loads
-from Classes.Load import LoadCategory, LoadType#, HydroStaticLoad, SurchargeLoad, WallLoad, CompactionLoad, SeismicLoad
+from Classes.Load import LoadCategory, LoadType, SurchargeLoad, WallLoad, SeismicLoad
 from Classes.LoadManager import LoadManager
 
 class LoadsDialog(Qtw.QDialog, Ui_dl_loads):
@@ -33,24 +33,30 @@ class LoadsDialog(Qtw.QDialog, Ui_dl_loads):
         self.load_manager = load_manager
         self.load_type = load_type
         self.load = None # Placeholder for selected load used to edit and save etc.
-        self.populate_combo_boxes()
-        self.populate_list_box()
         # Show Widget
         self.show()
 
-    def populate_combo_boxes(self):
+    def populate_combo_boxes(self) -> None:
         for category in LoadCategory:
             self.cb_category.addItem(category.name, category)
         for load_type in LoadType:
             self.cb_type.addItem(load_type.name, load_type)
+        # print(self.load_type)
+        self.cb_type.setCurrentText(self.load_type.name)
 
-    def populate_list_box(self):
+    def populate_list_box(self) -> None:
         self.lb_loads.clear()
         for load in self.load_manager.get_loads():
             if load.load_type == self.load_type:
                 item = Qtw.QListWidgetItem(load.name)
                 item.setData(Qtc.Qt.ItemDataRole.UserRole, load)
                 self.lb_loads.addItem(item)
+
+    @Qtc.Slot(str)
+    def dialog_setup(self, text) -> None:
+        self.setWindowTitle(f"Edit {text} Loads")
+        self.populate_combo_boxes()
+        self.populate_list_box()
 
     @Qtc.Slot()
     def check_type_string(self, text):
@@ -77,9 +83,21 @@ class LoadsDialog(Qtw.QDialog, Ui_dl_loads):
 
     @Qtc.Slot()
     def save_load(self):
-        self.load.name = self.le_name.text()
-        self.load.value = float(self.le_value.text().strip())
-        self.load.category = self.cb_category.currentData()
-        self.load.load_type = self.cb_type.currentData()
+        name = self.le_name.text()
+        value = float(self.le_value.text().strip())
+        category = self.cb_category.currentData()
+        load_type = self.cb_type.currentData()
+
+        if self.load_type == LoadType.SURCHARGE:
+            self.load = SurchargeLoad(name, load_type, category, value)
+        elif self.load_type == LoadType.WALL:
+            self.load = WallLoad(name, load_type, category, value)
+        elif self.load_type == LoadType.SEISMIC:
+            self.load = SeismicLoad(name, load_type, category, value)
+        else:
+            raise Exception(f"Unknown load type: {self.load_type.name}")
+
+        self.load_manager.add_load(self.load)
         self.populate_list_box()
-        print(self.load)
+        self.load = None
+

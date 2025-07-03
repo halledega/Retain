@@ -30,7 +30,7 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
     This class handles initializing the user interface, connecting menu actions,
     and setting up placeholders for forms, soil profiles, concrete properties, and rebar data.
     """
-
+    loads_dialog_opened = Qtc.Signal(str)
     def __init__(self):
         """
         Initialize the MainWindow instance.
@@ -167,7 +167,6 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
         self.le_footing_thickness.textChanged.connect(self.update_wall)
         self.le_toe_length.textChanged.connect(self.update_wall)
 
-
     def draw_wall(self) -> None:
         """Draw the footing and wall on the graphics scene, and auto-fit it in the view."""
         if not self.wall:
@@ -229,16 +228,21 @@ class MainWindow(Qtw.QMainWindow, Ui_mw_MainWindow):
 
     @Qtc.Slot()
     def open_surcharge_loads_dialog(self) -> None:
-        self.form = LoadsDialog(self.load_manager, LoadType.SEISMIC)
+        self.form = LoadsDialog(self.load_manager, LoadType.SURCHARGE)
+        self.loads_dialog_opened.connect(self.form.dialog_setup)
+        self.loads_dialog_opened.emit("Surcharge")
         self.form.show()
-
     @Qtc.Slot()
     def open_wall_loads_dialog(self) -> None:
-        self.form = LoadsDialog(self.load_manager, LoadType.SEISMIC)
+        self.form = LoadsDialog(self.load_manager, LoadType.WALL)
+        self.loads_dialog_opened.connect(self.form.dialog_setup)
+        self.loads_dialog_opened.emit("Wall")
         self.form.show()
     @Qtc.Slot()
     def open_seismic_loads_dialog(self) -> None:
         self.form = LoadsDialog(self.load_manager, LoadType.SEISMIC)
+        self.loads_dialog_opened.connect(self.form.dialog_setup)
+        self.loads_dialog_opened.emit("Seismic")
         self.form.show()
 
     @Qtc.Slot(list)

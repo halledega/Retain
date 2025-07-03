@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="026bb572-1c5a-4170-a0a4-944064e40a98" name="Changes" comment="Added LoadManager&#10;Added new load method" />
+    <list default="true" id="026bb572-1c5a-4170-a0a4-944064e40a98" name="Changes" comment="Added LoadManager&#10;Added new load method">
+      <change beforePath="$PROJECT_DIR$/.idea/Retain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Retain.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.py" beforeDir="false" afterPath="$PROJECT_DIR$/App.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Loads/loads_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/Loads/loads_dialog.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +40,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/halledega/Retain.git&quot;,
-    &quot;accountId&quot;: &quot;bd60adb8-7a85-4ab4-ab5c-0174e66fe428&quot;
+    &quot;accountId&quot;: &quot;0e68268c-48aa-4284-8d8e-9f3cb238bf82&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -51,6 +57,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;PySide&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mhalliday/Repos/Python/Retain&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -120,6 +127,7 @@
       <workItem from="1747710185341" duration="2546000" />
       <workItem from="1749183501540" duration="1768000" />
       <workItem from="1750027685565" duration="25000" />
+      <workItem from="1751518456646" duration="432000" />
     </task>
     <task id="LOCAL-00001" summary="General Update">
       <option name="closed" value="true" />
@@ -167,7 +175,17 @@
     <MESSAGE value="Added LoadManager&#10;Added new load method" />
     <option name="LAST_COMMIT_MESSAGE" value="Added LoadManager&#10;Added new load method" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes/Load.py</url>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Retain$App.coverage" NAME="App Coverage Results" MODIFIED="1749185114118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Retain$App.coverage" NAME="App Coverage Results" MODIFIED="1751518482061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
